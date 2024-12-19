@@ -289,6 +289,7 @@ if nvidia_num_gpus > 0:
     nvidia_gpus = {x: nvidia_gpu_names.count(x) for x in nvidia_gpu_names}
     nvidia_gpu_sm = {}
     # get NVIDIA SM from GPU name
+    """
     for name in nvidia_gpus:
         found_name = False
         for key in nvidia_compute_capability_mapping:
@@ -299,7 +300,7 @@ if nvidia_num_gpus > 0:
 
         if not found_name:
             raise RuntimeError("Unrecognized GPU name '{}'".format(name))
-
+    """
     cond_print("Found {} NVIDIA GPU(s):".format(nvidia_num_gpus))
     for name in nvidia_gpus:
         cond_print("  {}x {}: {}".format(nvidia_gpus[name], name, nvidia_gpu_sm[name]))
